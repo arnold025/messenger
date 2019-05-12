@@ -13,21 +13,21 @@
             </label>
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9" *ngIf="user">
           <div>
-            <label for=""> Nick</label>
-            <input type="text" class="form-control">
+            <label for="">Nick</label>
+            <input [(ngModel)]="user.nick" type="text" class="form-control">
           </div>
           <div>
             <label for="">SubNick</label>
-            <input type="text" class="form-control">
+            <input [(ngModel)]="user.subNick" type="text" class="form-control">
           </div>
           <div>
             <label for="">Email</label>
-            <input type="text" class="form-control">
+            <input [(ngModel)]="user.email" type="text" class="form-control">
           </div>
           <div>
-            <label for="">Email</label>
+            <label for="">Estado</label>
             <select class="form-control">
               <option value="online">Conectado</option>
               <option value="away">Ausente</option>
@@ -35,7 +35,7 @@
               <option value="appear_offline">Desconectado</option>
             </select>
           </div><hr>
-          <a class="btn btn-primary btn-block">Guardar</a>
+          <a (click)="saveSettings()" class="btn btn-primary btn-block">Guardar</a>
       </div>
     </div>
   </div>
