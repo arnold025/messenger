@@ -1,3 +1,23 @@
 img.status-friend{
   width: 15px;
 }
+#homeContainer{
+  background-image: url('/assets/img/msnbg.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  .homeHeaderContainer{
+    border: 2px solid rgba(255,255,255, 0.5);
+  }
+  img.homeAvatarPicture{
+    border: 2px solid rgba(255,255,255, 0.75);
+    padding: 8px;
+    max-width: 100px;
+  }
+}
+.whiteContainerPadded{
+  padding: 15px;
+  background-color: #feffff;
+  img.icon{
+    width: 30px;
+  }
+}

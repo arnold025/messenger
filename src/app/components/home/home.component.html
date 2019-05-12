@@ -1,16 +1,46 @@
-<input type="text" placeholder="Search friend" [(ngModel)]="query">
-<ng-container *ngFor="let user of friends |search: query; let i = index">
-  <!-- <div *ngIf="user.friend; else enemigos"> -->
-    <strong *ngIf="i==0">Amigos: </strong>
-    <p>
-      {{i+1}} : <img class="status-friend" src="assets/img/logo_live_{{user.status}}.png"><a routerLink="/conversation/{{user.uid}}">{{user.nick}} - {{user.email}}</a>
-    </p>
-  <!-- </div> -->
+<div id="homeContainer">
+  <div class="whiteBorderGlassBox">
+    <div class="homeHeaderContainer">
+      <div class="row">
+        <div class="col-md-auto">
+          <div class="avatarFrameOnline">
+            <img src="assets/img/generic_avatar.png" class="homeAvatarPicture" alt="">
+          </div>
+        </div>
+        <div class='col'>
+          <b>Eduardo</b>
+          <div>
+            <span>Online</span>
+            <br>
+            <span>Escribe un mensaje personal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="whiteContainerPadded mt-3">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Search friend" [(ngModel)]="query">
+    </div>
+    <div class='col-md-auto'><img src="assets/img/logo_live_add.png" class="icon" alt=""></div>
+  </div>
 
-  <!-- <ng-template #enemigos>
-    <strong *ngIf="i==3" style='color:red'>Enemigos: </strong>
+  <ng-container *ngFor="let user of friends |search: query; let i = index">
+    <!-- <div *ngIf="user.friend; else enemigos"> -->
+    <strong *ngIf="i==0">Amigos: ({{friends.length}}/{{friends.length}})</strong>
     <p>
-      {{i+1}} : <a>{{user.nick}} - {{user.email}}</a>
+      {{i+1}} : <img class="status-friend" src="assets/img/logo_live_{{user.status}}.png"><a
+        routerLink="/conversation/{{user.uid}}"><strong>{{user.nick}}</strong> - {{user.email}}</a>
     </p>
-  </ng-template> -->
-</ng-container>
+    <!-- </div> -->
+
+    <!-- <ng-template #enemigos>
+        <strong *ngIf="i==3" style='color:red'>Enemigos: </strong>
+        <p>
+          {{i+1}} : <a>{{user.nick}} - {{user.email}}</a>
+        </p>
+      </ng-template> -->
+  </ng-container>
+</div>
