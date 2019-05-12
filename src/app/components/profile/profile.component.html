@@ -2,8 +2,8 @@
   <div class="container pt-5">
     <div class="row">
       <div class="col-md-3">
-        <div class="avatarFrameOnline">
-          <img  [src]="croppedImage"  class="avatarImage img-fluid" alt="">
+        <div class="avatarFrameOnline" *ngIf="user">
+          <img  [src]="croppedImage || user.avatar || 'assets/img/generic_avatar.png'"  class="avatarImage img-fluid" alt="">
         </div>
         <hr>
         <div>
@@ -29,11 +29,11 @@
         </div>
         <div>
           <label for="">Email</label>
-          <input [(ngModel)]="user.email" type="text" class="form-control">
+          <input [(ngModel)]="user.email" type="text" class="form-control" disabled>
         </div>
         <div>
           <label for="">Estado</label>
-          <select class="form-control">
+          <select class="form-control" [(ngModel)]="user.status">
             <option value="online">Conectado</option>
             <option value="away">Ausente</option>
             <option value="busy">Ocupado</option>
