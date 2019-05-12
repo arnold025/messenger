@@ -3,6 +3,7 @@ export interface User {
   subNick?: string;
   age?: number;
   email: string;
+  status: string;
   friend: boolean;
   uid: any;
 }

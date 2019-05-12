@@ -17,6 +17,7 @@ export class UserService {
       nick: 'Eduardo',
       age: 24,
       email: 'ed@aoe.aoe',
+      status: 'online',
       friend: true,
       uid: 1
     };
@@ -24,6 +25,7 @@ export class UserService {
       nick: 'Freddy',
       age: 28,
       email: 'fred@aoe.aoe',
+      status: 'offline',
       friend: true,
       uid: 2
     };
@@ -31,6 +33,7 @@ export class UserService {
       nick: 'Yuliana',
       age: 18,
       email: 'yuli@aoe.aoe',
+      status: 'busy',
       friend: true,
       uid: 3
     };
@@ -38,6 +41,7 @@ export class UserService {
       nick: 'Ricardo',
       age: 17,
       email: 'rick@aoe.aoe',
+      status: 'away',
       friend: false,
       uid: 4
     };
@@ -45,6 +49,7 @@ export class UserService {
       nick: 'Marcos',
       age: 30,
       email: 'marcos@aoe.aoe',
+      status: 'online',
       friend: false,
       uid: 5
     };

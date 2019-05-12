@@ -3,7 +3,7 @@
   <!-- <div *ngIf="user.friend; else enemigos"> -->
     <strong *ngIf="i==0">Amigos: </strong>
     <p>
-      {{i+1}} : <a routerLink="/conversation/{{user.uid}}">{{user.nick}} - {{user.email}}</a>
+      {{i+1}} : <img class="status-friend" src="assets/img/logo_live_{{user.status}}.png"><a routerLink="/conversation/{{user.uid}}">{{user.nick}} - {{user.email}}</a>
     </p>
   <!-- </div> -->
 
