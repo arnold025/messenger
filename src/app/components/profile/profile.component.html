@@ -3,39 +3,45 @@
     <div class="row">
       <div class="col-md-3">
         <div class="avatarFrameOnline">
-          <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid" alt="">
+          <img  [src]="croppedImage"  class="avatarImage img-fluid" alt="">
         </div>
         <hr>
         <div>
           <span>Cambiar foto</span><br>
-            <label for="file-upload" class="custom-file-upload">
-              <input type="file" id="file-upload">Subir avatar
-            </label>
+          <label for="file-upload" class="custom-file-upload">
+            <input type="file" id="file-upload" (change)="fileChangeEvent($event)">Subir avatar
+          </label>
         </div>
       </div>
       <div class="col-md-9" *ngIf="user">
-          <div>
-            <label for="">Nick</label>
-            <input [(ngModel)]="user.nick" type="text" class="form-control">
-          </div>
-          <div>
-            <label for="">SubNick</label>
-            <input [(ngModel)]="user.subNick" type="text" class="form-control">
-          </div>
-          <div>
-            <label for="">Email</label>
-            <input [(ngModel)]="user.email" type="text" class="form-control">
-          </div>
-          <div>
-            <label for="">Estado</label>
-            <select class="form-control">
-              <option value="online">Conectado</option>
-              <option value="away">Ausente</option>
-              <option value="busy">Ocupado</option>
-              <option value="appear_offline">Desconectado</option>
-            </select>
-          </div><hr>
-          <a (click)="saveSettings()" class="btn btn-primary btn-block">Guardar</a>
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1 / 1"
+          [resizeToWidth]="128" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+          (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+        <img [src]="croppedImage" />
+        <div>
+          <label for="">Nick</label>
+          <input [(ngModel)]="user.nick" type="text" class="form-control">
+        </div>
+        <div>
+          <label for="">SubNick</label>
+          <input [(ngModel)]="user.subNick" type="text" class="form-control">
+        </div>
+        <div>
+          <label for="">Email</label>
+          <input [(ngModel)]="user.email" type="text" class="form-control">
+        </div>
+        <div>
+          <label for="">Estado</label>
+          <select class="form-control">
+            <option value="online">Conectado</option>
+            <option value="away">Ausente</option>
+            <option value="busy">Ocupado</option>
+            <option value="appear_offline">Desconectado</option>
+          </select>
+        </div>
+        <hr>
+        <a (click)="saveSettings()" class="btn btn-primary btn-block">Guardar</a>
       </div>
     </div>
   </div>
