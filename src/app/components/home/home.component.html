@@ -1,3 +1,15 @@
-<p>
-  home works!
-</p>
+<ng-container *ngFor="let user of friends; let i = index">
+  <div *ngIf="user.friend; else enemigos">
+    <strong *ngIf="i==0">Amigos: </strong>
+    <p>
+      {{i+1}} : <a routerLink="/conversation/{{user.uid}}">{{user.nick}} - {{user.email}}</a>
+    </p>
+  </div>
+
+  <ng-template #enemigos>
+    <strong *ngIf="i==3" style='color:red'>Enemigos: </strong>
+    <p>
+      {{i+1}} : <a>{{user.nick}} - {{user.email}}</a>
+    </p>
+  </ng-template>
+</ng-container>
