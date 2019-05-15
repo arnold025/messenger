@@ -3,21 +3,21 @@
     <div class="col-sm-3 maxwi300">
       <div id="conversationSidebar">
         <div class="vh30">
-          <div class="avatarFrameonline">
-            <img src="{{'assets/img/generic_avatar.png'}}" class="avatarImage img-fluid">
+          <div class="avatarFrameonline" *ngIf="friend && friend.avatar; else noAvatar">
+            <img src="{{friend.avatar}}" class="avatarImage img-fluid">
           </div>
         </div>
         <div class="vh30"></div>
         <div class="vh25">
-          <div class="avatarFrameonline">
-            <img src="{{'assets/img/generic_avatar.png'}}" class="avatarImage img-fluid">
-          </div>
+            <div class="avatarFrameonline" *ngIf="user && user.avatar; else noAvatar">
+              <img src="{{user.avatar}}" class="avatarImage img-fluid">
+            </div>
         </div>
       </div>
     </div>
     <div class="col-sm-9">
       <br />
-      <span class="friendName">Amigo 1</span> (online)
+      <p *ngIf="friend"><span class="friendName">{{friend.nick}}</span> {{friend.status}}</p>
       <hr />
       <div class="vh55 overscroll pabo10" id="messageArea">
         <div class="messageGroup" *ngFor="let message of conversation">
@@ -51,3 +51,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #noAvatar>
+    <img src='assets/img/generic_avatar.png' class="avatarImage img-fluid">
+</ng-template>

@@ -3,14 +3,18 @@
     <div class="homeHeaderContainer">
       <div class="row">
         <div class="col-md-auto">
-          <div class="avatarFrameOnline">
-            <img src="assets/img/generic_avatar.png" class="homeAvatarPicture" alt="">
+          <div class="avatarFrameOnline" *ngIf="user && user.avatar; else noAvatar">
+            <img src="{{user.avatar}}" class="homeAvatarPicture" alt="">
           </div>
+          <ng-template #noAvatar>
+              <img src="assets/img/generic_avatar.png" class="homeAvatarPicture" alt="">
+          </ng-template>
         </div>
-        <div class='col'>
-          <b>Eduardo</b>
+        <div class='col' *ngIf="user">
+          <strong>{{user.nick}}</strong>
           <div>
-            <span>Online</span>
+            <span>{{user.email}}</span><br>
+            <span>{{user.status}}</span>
             <br>
             <span>Escribe un mensaje personal</span><br>
             <a (click)="logOut()">Cerrar sesión</a>
