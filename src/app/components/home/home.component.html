@@ -32,21 +32,11 @@
     <div class='col-md-auto'><img src="assets/img/logo_live_add.png" (click)="open(content)" class="icon" alt=""></div>
   </div>
 
-  <ng-container *ngFor="let user of friends |search: query; let i = index">
-    <!-- <div *ngIf="user.friend; else enemigos"> -->
-    <strong *ngIf="i==0">Amigos: ({{friends.length}}/{{friends.length}})</strong>
-    <p>
-      {{i+1}} : <img class="status-friend" src="assets/img/logo_live_{{user.status}}.png"><a
-        routerLink="/conversation/{{user.uid}}"><strong>{{user.nick}}</strong> - {{user.email}}</a>
-    </p>
-    <!-- </div> -->
-
-    <!-- <ng-template #enemigos>
-        <strong *ngIf="i==3" style='color:red'>Enemigos: </strong>
-        <p>
-          {{i+1}} : <a>{{user.nick}} - {{user.email}}</a>
-        </p>
-      </ng-template> -->
+  <ng-container *ngIf="user && user.friends">
+      <strong>Amigos: ({{user.friends.length}}/{{user.friends.length}})</strong>
+      <p *ngFor="let friend of user.friends |search: query; let i = index">
+          <app-contact class="col-md-12" [uid] = "friend"></app-contact>
+      </p>
   </ng-container>
 </div>
 

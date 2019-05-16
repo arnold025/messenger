@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
     this.authenticationService.getStatus().subscribe(status => {
       this.userService.getUserById(status.uid).valueChanges().subscribe((data: User) => {
         this.user = data;
+        if (this.user.friends) {
+          this.user.friends = Object.values(this.user.friends);
+        }
       });
     });
   }

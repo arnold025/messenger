@@ -25,7 +25,6 @@ export class RequestComponent extends DialogComponent<PromptModel, any> implemen
   }
 
   accept() {
-    console.log(this.currentRequest);
     let typeResponse = '';
     if (this.shouldAdd === 'yes') {
       typeResponse = 'accepted';
@@ -37,7 +36,7 @@ export class RequestComponent extends DialogComponent<PromptModel, any> implemen
     this.requestService.setRequestStatus(this.currentRequest, typeResponse)
       .then((data) => {
         if (this.shouldAdd !== 'yes') { return; }
-        this.userService.addFriend(this.scope.user.uid, this.currentRequest.sender)
+        this.userService.addFriend(this.scope.user.uid, this.currentRequest.senderId)
           .then((response) => {
             console.log(response);
           })

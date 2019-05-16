@@ -20,6 +20,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { RequestComponent } from './components/modals/request/request.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { RequestComponent } from './components/modals/request/request.component'
     MenuComponent,
     SearchPipe,
     RequestComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
