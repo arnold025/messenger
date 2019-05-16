@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { RequestComponent } from './components/modals/request/request.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
     ProfileComponent,
     MenuComponent,
     SearchPipe,
+    RequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,9 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
     BootstrapModalModule.forRoot({ container: document.body })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    RequestComponent
+  ]
 })
 export class AppModule { }
