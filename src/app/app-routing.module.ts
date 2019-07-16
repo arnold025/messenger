@@ -7,16 +7,19 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthenticationGuard]},
-  {path: 'home', component: HomeComponent, canActivate: [AuthenticationGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'conversation/:uid', component: ConversationComponent, canActivate: [AuthenticationGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthenticationGuard]},
-  {path: '**', component: HomeComponent}
+  { path: '', component: HomeComponent, canActivate: [AuthenticationGuard] },
+  { path: 'authentication', loadChildren: './components/authentication/authentication.module#AuthenticationModule' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthenticationGuard] },
+  // {path: 'login', component: LoginComponent},
+  { path: 'conversation/:uid', component: ConversationComponent, canActivate: [AuthenticationGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthenticationGuard] },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
