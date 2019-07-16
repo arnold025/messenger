@@ -12,18 +12,52 @@
         <div class='text-center'>
           <h3>Iniciar Sesión</h3>
         </div>
-        <p *ngIf="operationType=='register'">¿Ya tienes cuenta? Has <a (click)="operationType='login'">login</a></p>
-        <p *ngIf="operationType=='login'">¿No tienes cuenta? <a (click)="operationType='register'">Registrate</a></p>
-        <div class="borderedContainer">
-          <input [(ngModel)]="email" class="form-control mb-3" type="email" placeholder="Ingrese Email">
-          <input [(ngModel)]="password"  class="form-control mb-3" type="password" placeholder="Ingrese contraseña">
-          <input [(ngModel)]="nick" *ngIf="operationType=='register'" class="form-control mb-3" type="text" placeholder="Ingrese nick">
-        </div>
-        <div class="text-center mt-3">
-          <a (click)="login()" *ngIf="operationType=='login'" class="btn btn-primary">Iniciar sesión</a>
-          <a (click)="register()" *ngIf="operationType=='register'" class="btn btn-primary">Registrarme</a>
+        <div *ngIf="operationType === 'login'; else registerForm">
+          <p >¿No tienes cuenta? <a (click)="operationType='register'">Registrate</a></p>
+          <div class="borderedContainer">
+            <input [(ngModel)]="email" class="form-control mb-3" type="email" placeholder="Ingrese Email" required>
+            <input [(ngModel)]="password" class="form-control mb-3" type="password" placeholder="Ingrese contraseña" required>
+          </div>
+          <div class="col-md-6">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="online">Online</option>
+              <option value="away">Away</option>
+              <option value="busy">Busy</option>
+              <option value="appear_offline">Offline</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+              <div>
+                  <input type="checkbox" name="remember" id="remember">
+                  <label for="remember"> Recuerda mi email </label>
+              </div>
+              <div>
+                  <input type="checkbox" name="remember_pass" id="remember_pass">
+                  <label for="remember_pass"> Recuerda mi contraseña </label>
+              </div>
+              <div>
+                  <input type="checkbox" name="conect_automatically" id="conect_automatically">
+                  <label for="conect_automatically"> Iniciar sesión automáticamente </label>
+              </div>
+          </div>
+          <div class="text-center mt-3">
+            <a (click)="login()" *ngIf="operationType==='login'" class="btn btn-primary">Iniciar sesión</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<ng-template #registerForm>
+  <p>¿Ya tienes cuenta? Has <a (click)="operationType='login'">login</a></p>
+  <div class="borderedContainer">
+    <input [(ngModel)]="email" class="form-control mb-3" type="email" placeholder="Ingrese Email" required>
+    <input [(ngModel)]="password" class="form-control mb-3" type="password" placeholder="Ingrese contraseña" required>
+    <input [(ngModel)]="nick" *ngIf="operationType=='register'" class="form-control mb-3" type="text"
+      placeholder="Ingrese nick" required>
+  </div>
+  <div class="text-center mt-3">
+    <a (click)="register()" *ngIf="operationType=='register'" class="btn btn-primary">Registrarme</a>
+  </div>
+</ng-template>

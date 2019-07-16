@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public operationType: String = 'login';
+  public operationType: string = 'login';
   public email: string = null;
   public password: string = null;
   public nick: string = null;
