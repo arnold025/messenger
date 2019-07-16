@@ -1,0 +1,27 @@
+<div class="loginContainer">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-3">
+        <div class="avatarFrameOffline mt-3 mb-3">
+          <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class='col-md-6'>
+        <div class='text-center'>
+          <h3>Iniciar Sesión</h3>
+        </div>
+        <div *ngIf="operationType === 'login'; else registerForm">
+          <p>¿No tienes cuenta? <a (click)="operationType='register'">Registrate</a></p>
+          <app-login></app-login>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #registerForm>
+  <p>¿Ya tienes cuenta? Has <a (click)="operationType='login'">login</a></p>
+  <app-register></app-register>
+</ng-template>

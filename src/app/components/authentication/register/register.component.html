@@ -1,3 +1,8 @@
-<p>
-  register works!
-</p>
+<div class="borderedContainer">
+  <input [(ngModel)]="email" class="form-control mb-3" type="email" placeholder="Ingrese Email" required>
+  <input [(ngModel)]="password" class="form-control mb-3" type="password" placeholder="Ingrese contraseña" required>
+  <input [(ngModel)]="nick" class="form-control mb-3" type="text" placeholder="Ingrese nick" required>
+</div>
+<div class="text-center mt-3">
+  <a (click)="register()" class="btn btn-primary">Registrarme</a>
+</div>

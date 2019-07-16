@@ -10,14 +10,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-
-  public operationType: string = 'login';
   public email: string = null;
   public password: string = null;
   public nick: string = null;
 
   constructor(private authenticationService: AuthenticationService,
-    private userService: UserService, private router: Router) { }
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -33,6 +31,4 @@ export class LoginComponent implements OnInit {
         console.log(error);
       });
   }
-
-
 }
